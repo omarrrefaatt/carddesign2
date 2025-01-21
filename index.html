@@ -187,21 +187,32 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          height: 100vh;
-          width: 100%;
+          height: auto; /* Adjust height for better responsiveness */
+          width: 100%; /* Ensure the card takes full width */
+          padding: 20px; /* Add some padding for better spacing */
+          margin-top: 30px; /* Add margin to prevent content from being hidden by the search bar */
         }
         .left {
-          width: inherit;
-          height: inherit;
+          width: 100%; /* Ensure the left section takes full width */
+          height: auto; /* Adjust height for better responsiveness */
           border-radius: 0px 0px 90px 90px;
+          text-align: center; /* Center align text for better readability */
         }
         .right {
-          width: 80%;
+          margin-top: 20px;
+          width: 100%; /* Ensure the right section takes full width */
         }
         .summary-item {
           justify-content: space-between;
           align-items: center;
           font-weight: 900;
+        }
+        .circle {
+          width: 150px; /* Adjust circle size for mobile view */
+          height: 150px; /* Ensure the circle remains a perfect circle */
+        }
+        .score {
+          font-size: 3rem; /* Adjust font size for better readability */
         }
       }
     </style>
