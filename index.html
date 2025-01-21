@@ -183,24 +183,33 @@
         background-color: hsl(0, 0%, 100%);
       }
       @media screen and (max-width: 800px) {
+        body {
+          padding: 0;
+          margin: 0;
+        }
         .card {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          height: 100vh;
+          height: auto;
           width: 100%;
           padding: 20px;
           margin-top: 20px;
+          padding: 0;
+          margin: 0;
         }
         .left {
-          width: 100%; /* Ensure the left section takes full width */
-          height: auto; /* Adjust height for better responsiveness */
+          width: 80%;
+          height: auto;
           border-radius: 0px 0px 90px 90px;
-          text-align: center; /* Center align text for better readability */
+          text-align: center;
+          padding: 50px;
         }
         .right {
-          margin-top: 20px;
-          width: 100%; /* Ensure the right section takes full width */
+          margin: 0;
+          margin-top: 60px;
+          width: 90%;
+          padding: 0;
         }
         .summary-item {
           justify-content: space-between;
@@ -208,11 +217,11 @@
           font-weight: 900;
         }
         .circle {
-          width: 150px; /* Adjust circle size for mobile view */
-          height: 150px; /* Ensure the circle remains a perfect circle */
+          width: 150px;
+          height: 150px;
         }
         .score {
-          font-size: 3rem; /* Adjust font size for better readability */
+          font-size: 3rem;
         }
       }
     </style>
