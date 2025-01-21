@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Hanken Grotesk", sans-serif;
+      }
+      @font-face {
+        font-family: "Hanken Grotesk";
+        src: url("./assets/fonts/static/HankenGrotesk-Medium.ttf")
+            format("truetype"),
+          url("./assets/fonts/static/HankenGrotesk-Bold.ttf") format("truetype"),
+          url("./assets/fonts/static/HankenGrotesk-ExtraBold.ttf")
+            format("truetype");
+        font-weight: 500 700 800;
+        font-style: normal;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        height: 100vh;
+        background-color: hsl(221, 100%, 96%);
+      }
+      .card {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        max-width: 800px;
+        height: 500px;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50%;
+        background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+        border-radius: 30px;
+        padding: 20px;
+      }
+      .ltitle {
+        font-size: 1.5rem;
+        color: hsl(241, 100%, 89%);
+        margin-bottom: 1rem;
+      }
+      .circle {
+        background: linear-gradient(
+          hsla(256, 72%, 46%, 1),
+          hsla(241, 72%, 46%, 0)
+        );
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .score {
+        font-weight: 800;
+        font-size: 4rem;
+        color: hsl(0, 0%, 100%);
+        margin: 0;
+      }
+      .total {
+        font-size: 18px;
+        color: hsl(241, 100%, 89%);
+        margin: 0;
+        font-weight: 500;
+      }
+      .rank {
+        font-size: 2rem;
+        color: hsl(0, 0%, 100%);
+        margin: 1rem 0;
+      }
+      .text {
+        font-size: 18px;
+        color: hsl(241, 100%, 89%);
+        text-align: center;
+        width: 75%;
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 50%;
+        padding: 40px 35px;
+      }
+      .summary {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80%;
+        gap: 15px;
+      }
+      .summary-item {
+        padding: 18px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        font-weight: 900;
+      }
+      .first {
+        background: hsla(0, 100%, 67%, 0.1);
+        color: hsl(0, 100%, 67%);
+      }
+      .second {
+        background: hsla(34, 100%, 50%, 0.1);
+        color: hsl(39, 100%, 56%);
+      }
+      .third {
+        background: hsla(171, 100%, 41%, 0.1);
+        color: hsl(166, 100%, 37%);
+      }
+      .fourth {
+        background: hsla(256, 72%, 46%, 0.1);
+        color: hsl(234, 85%, 45%);
+      }
+      .rtitle {
+        font-size: 1.5rem;
+        color: hsl(224, 30%, 27%);
+      }
+      .itemname {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .summary-score {
+        color: black;
+      }
+      .outof {
+        color: hsl(241, 100%, 89%);
+      }
+      .scorecard {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .continue {
+        background-color: hsl(224, 30%, 27%);
+        color: hsl(0, 0%, 100%);
+        padding: 20px 25px;
+        width: 100%;
+        border-radius: 50px;
+        font-weight: 800;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.5s;
+      }
+      .continue:hover {
+        color: hsl(224, 30%, 20%);
+        background-color: hsl(0, 0%, 100%);
+      }
+      @media screen and (max-width: 800px) {
+        .card {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          width: 100%;
+        }
+        .left {
+          width: inherit;
+          height: inherit;
+          border-radius: 0px 0px 90px 90px;
+        }
+        .right {
+          width: 80%;
+        }
+        .summary-item {
+          justify-content: space-between;
+          align-items: center;
+          font-weight: 900;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="left">
+        <h3 class="ltitle">Your Result</h3>
+        <div class="circle">
+          <p class="score">76</p>
+          <p class="total">of 100</p>
+        </div>
+        <h2 class="rank">Great</h2>
+        <p class="text">
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </div>
+      <div class="right">
+        <h3 class="rtitle">Summary</h3>
+        <div class="summary">
+          <div class="summary-item first">
+            <div class="itemname">
+              <img src="./assets/images/icon-reaction.svg" alt="" />
+              <h3 class="summary-title">Reaction</h3>
+            </div>
+            <div class="scorecard">
+              <p class="summary-score">80</p>
+              <p class="outof">/ 100</p>
+            </div>
+          </div>
+          <div class="summary-item second">
+            <div class="itemname">
+              <img src="./assets/images/icon-memory.svg" alt="" />
+              <h3 class="summary-title">Memory</h3>
+            </div>
+            <div class="scorecard">
+              <p class="summary-score">92</p>
+              <p class="outof">/ 100</p>
+            </div>
+          </div>
+          <div class="summary-item third">
+            <div class="itemname">
+              <img src="./assets/images/icon-verbal.svg" alt="" />
+              <h3 class="summary-title">Verbal</h3>
+            </div>
+
+            <div class="scorecard">
+              <p class="summary-score">61</p>
+              <p class="outof">/ 100</p>
+            </div>
+          </div>
+          <div class="summary-item fourth">
+            <div class="itemname">
+              <img src="./assets/images/icon-visual.svg" alt="" />
+              <h3 class="summary-title">Visual</h3>
+            </div>
+            <div class="scorecard">
+              <p class="summary-score">72</p>
+              <p class="outof">/ 100</p>
+            </div>
+          </div>
+        </div>
+        <button class="continue">Continue</button>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>
